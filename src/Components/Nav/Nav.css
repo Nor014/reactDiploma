@@ -1,0 +1,9 @@
+.nav__link {
+  text-decoration: none;
+  color: #807c7d;
+  margin-right: 18px;
+}
+
+.active {
+  color: #000;
+}

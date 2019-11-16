@@ -1,0 +1,21 @@
+.header {
+  background: #f8f9fa;
+  padding: 10px 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  margin-right: 24px;
+}
+
+.header__nav-inner {
+  display: flex;
+  align-items: center;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+}
