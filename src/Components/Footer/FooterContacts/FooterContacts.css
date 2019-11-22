@@ -1,0 +1,38 @@
+.footer-contacts {
+  text-align: right;
+}
+
+.footer-contacts_display_block {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.footer-contacts__email {
+  margin-bottom: 15px;
+}
+
+.footer-contacts__link {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-image: url('./footer-sprite.png');
+}
+
+.footer-contacts__link-twitter {
+  background-position: -107px -42px;
+}
+
+.footer-contacts__link-vk {
+  background-position: -157px -42px;
+}
+
+.footer-contacts__link:hover {
+  cursor: pointer;
+}
+
+.footer-contacts__title {
+  margin-bottom: 17px;
+}

@@ -9,11 +9,24 @@
   padding: 0 20px;
   margin: 0 auto;
   min-height: 50vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .btn {
   border: none;
   background: none;
   outline: none;
+  cursor: pointer;
+}
+
+a {
+  color: #727e86;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+}
+
+a:hover {
   cursor: pointer;
 }

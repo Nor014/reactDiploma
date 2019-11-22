@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from '../Header/Header'
+import Banner from '../Banner/Banner';
+import SalesHits from '../SalesHits/SalesHits';
 
 class MainScreen extends React.Component {
 
@@ -7,7 +8,8 @@ class MainScreen extends React.Component {
 
     return (
       <section className="main-page">
- 
+        <Banner />
+        <SalesHits />
       </section>
     )
   }

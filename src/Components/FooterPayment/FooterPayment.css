@@ -1,0 +1,59 @@
+.footer-payment {
+  flex: 0 1 365px;
+}
+
+.footer-payment__items {
+  display: flex;
+}
+
+.footer-payment__item {
+  width: 46px;
+  height: 28px;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  background-image: url('./footer-sprite.png');
+  margin-right: 12px;
+}
+
+.footer-pay-systems:not(:first-child) {
+  margin-left: 5px;
+}
+
+.footer-payment__item_paypal {
+  background-position: -2px -6px;
+}
+
+.footer-payment__item_master-card {
+  background-position: -54px -8px;
+}
+
+.footer-payment__item_visa {
+  background-position: -104px -8px;
+}
+
+.footer-payment__item_yandex {
+  background-position: -154px -8px;
+}
+
+.footer-payment__item_webmoney {
+  background-position: -2px -46px;
+}
+
+.footer-payment__item_qiwi {
+  background-position: -52px -46px;
+}
+
+.footer-copyright__text {
+  font-size: 13px;
+  line-height: 20px;
+} 
+
+.footer-payment__title {
+  margin-bottom: 13px;
+}
+
+.footer-payment__items {
+  margin-bottom: 36px;
+}

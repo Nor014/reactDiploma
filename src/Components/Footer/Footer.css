@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background: #f8f9fa;
+}
+
+.footer__title {
+  color: #212529;
+}

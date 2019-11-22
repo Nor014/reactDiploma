@@ -1,8 +1,8 @@
 import React from 'react';
 import Logo from '../Logo/Logo';
-import Nav from '../Nav/Nav';
-import HeaderSearch from '../HeaderSearch/HeaderSearch';
-import HeaderCart from '../HeaderCart/HeaderCart'
+import Nav from './Nav/Nav';
+import HeaderSearch from './HeaderSearch/HeaderSearch';
+import HeaderCart from './HeaderCart/HeaderCart'
 
 class Header extends React.Component {
 

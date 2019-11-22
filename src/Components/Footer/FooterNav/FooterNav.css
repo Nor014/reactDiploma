@@ -1,0 +1,12 @@
+.footer-nav__title {
+  margin-bottom: 20px;
+}
+
+.footer-nav__items {
+  list-style: none;
+  margin-left: 15px;
+}
+
+.footer-nav__item:not(:last-child) {
+  margin-bottom: 28px;
+}
