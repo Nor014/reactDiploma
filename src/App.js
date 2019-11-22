@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer';
 import MainScreen from './Components/MainScreen/MainScreen';
 import AboutShop from './Components/AboutShop/AboutShop';
 import Contacts from './Components/Contacts/Contacts';
+import Error404 from './Components/Error404/Error404'
 import store from './store/store';
 
 import './App.css';
@@ -21,6 +22,8 @@ import './Components/Banner/Banner.css'
 import './Components/AboutShop/AboutShop.css'
 import './Components/Contacts/Contacts.css'
 import './Components/Preloader/Preloader.css'
+import './Components/ProductCard/ProductCard.css'
+import './Components/SalesHits/SalesHits.css'
 
 
 function App() {
@@ -30,9 +33,12 @@ function App() {
         <div className="App">
           <Header />
           <div className='content'>
-            <Route exact path='/' component={MainScreen} />
-            <Route exact path='/about.html' component={AboutShop} />
-            <Route exact path='/contacts.html' component={Contacts} />
+            <Switch>
+              <Route exact path='/' component={MainScreen} />
+              <Route exact path='/about.html' component={AboutShop} />
+              <Route exact path='/contacts.html' component={Contacts} />
+              <Route path='/' component={Error404} />
+            </Switch>
           </div>
           <Footer />
         </div>

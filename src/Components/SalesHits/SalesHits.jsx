@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../Preloader/Preloader';
-import { loadHits } from '../../actions/actions';
+import { loadHits, deleteHits } from '../../actions/actions';
+import ProductCard from '../ProductCard/ProductCard'
 
 
 class SalesHits extends React.Component {
   componentDidMount = () => {
     this.props.componentLoad()
+  }
+
+  componentWillUnmount = () => {
+    this.props.componentAumount()
   }
 
   render() {
@@ -18,7 +23,10 @@ class SalesHits extends React.Component {
 
         {loading && <Preloader />}
 
-        
+        {hits &&
+          <div className="sales-hits__wrap">
+            {hits.map(el => <ProductCard key={el.id} data={el} />)}
+          </div>}
       </div>
     )
   }
@@ -31,7 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    componentLoad: () => dispatch(loadHits())
+    componentLoad: () => dispatch(loadHits()),
+    componentAumount: () => dispatch(deleteHits())
   }
 }
 

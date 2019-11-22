@@ -1,0 +1,12 @@
+.sales-hits__title {
+  margin-bottom: 55px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.sales-hits__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -30px;
+}

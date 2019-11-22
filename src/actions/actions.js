@@ -12,6 +12,12 @@ export function setHits(data) {
   }
 }
 
+export function deleteHits() {
+  return {
+    type: 'DELETE_HITS'
+  }
+}
+
 export const fetchData = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {

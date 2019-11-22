@@ -10,8 +10,11 @@ export default function hitsReducer(state = initState, action) {
   }
 
   if (action.type === 'SET_HITS') {
-    console.log(action)
     return { ...state, loading: false, error: null, hits: action.payload }
+  }
+
+  if (action.type === 'DELETE_HITS') {
+    return initState
   }
 
   return state
