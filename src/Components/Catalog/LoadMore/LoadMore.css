@@ -1,0 +1,12 @@
+.load-more {
+  text-align: center;
+  margin-bottom: 35px;
+  margin-top: 15px;
+}
+
+.load-more__btn {
+  color: #727e86;
+  border: 1px solid #727e86;
+  border-radius: 5px;
+  padding: 12px;
+}

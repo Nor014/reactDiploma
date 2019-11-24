@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../Preloader/Preloader';
-import { loadHits, deleteHits } from '../../actions/actions';
+import { loadHits } from '../../actions/actions';
 import ProductCard from '../ProductCard/ProductCard'
 
 
@@ -10,21 +10,18 @@ class SalesHits extends React.Component {
     this.props.componentLoad()
   }
 
-  componentWillUnmount = () => {
-    this.props.componentAumount()
-  }
-
   render() {
     const { hits, loading, error } = this.props.state
-
+    console.log(this.props)
+    
     return (
-      <div className="sales-hits">
-        <div className="sales-hits__title">Хиты продаж!</div>
+      <div className="sales-hits container">
+        <div className="container__title">Хиты продаж!</div>
 
         {loading && <Preloader />}
 
         {hits &&
-          <div className="sales-hits__wrap">
+          <div className="container__wrap">
             {hits.map(el => <ProductCard key={el.id} data={el} />)}
           </div>}
       </div>
@@ -39,8 +36,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    componentLoad: () => dispatch(loadHits()),
-    componentAumount: () => dispatch(deleteHits())
+    componentLoad: () => dispatch(loadHits())
   }
 }
 

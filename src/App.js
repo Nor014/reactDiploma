@@ -24,6 +24,8 @@ import './Components/Contacts/Contacts.css'
 import './Components/Preloader/Preloader.css'
 import './Components/ProductCard/ProductCard.css'
 import './Components/SalesHits/SalesHits.css'
+import './Components/Catalog/CatalogNav/CatalogNav.css'
+import './Components/Catalog/LoadMore/LoadMore.css'
 
 
 function App() {

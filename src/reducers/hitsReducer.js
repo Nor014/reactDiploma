@@ -6,15 +6,11 @@ const initState = {
 
 export default function hitsReducer(state = initState, action) {
   if (action.type === 'LOAD_HITS') {
-    return { ...state, loading: true }
+    return { ...state, loading: true,  hits: []}
   }
 
   if (action.type === 'SET_HITS') {
     return { ...state, loading: false, error: null, hits: action.payload }
-  }
-
-  if (action.type === 'DELETE_HITS') {
-    return initState
   }
 
   return state

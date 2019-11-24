@@ -3,10 +3,14 @@ import createSagaMiddleware from 'redux-saga';
 import saga from '../saga/saga';
 import cartReducer from '../reducers/cartReducer';
 import hitsReducer from '../reducers/hitsReducer';
+import catalogReducer from '../reducers/catalogReducer';
+import catalogNavReducer from '../reducers/catalogNavReducer';
 
 const generalReducer = combineReducers({
   cartState: cartReducer,
-  hitsState: hitsReducer
+  hitsState: hitsReducer,
+  catalogState: catalogReducer,
+  catalogNavState: catalogNavReducer
 })
 
 const sagaMiddleware = createSagaMiddleware();

@@ -1,0 +1,18 @@
+.catalog__nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 60px;
+}
+
+.catalog__btn {
+  color: #727e86;
+}
+
+.catalog_btn_active {
+  color: #ff1400;
+}
+
+.catalog__nav-item:not(:last-child) {
+  margin-right: 35px;
+}

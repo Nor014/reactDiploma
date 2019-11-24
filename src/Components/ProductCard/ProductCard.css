@@ -8,6 +8,12 @@
   flex-direction: column;
 }
 
+.product-card__head {
+  min-height: 473px;
+  display: flex;
+  align-items: center;
+}
+
 .product-card__img {
   width: 100%;
 }

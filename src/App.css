@@ -30,3 +30,20 @@ a, a:hover, a:visited, a:active {
 a:hover {
   cursor: pointer;
 }
+
+.container {
+
+}
+
+.container__title {
+  margin-bottom: 55px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.container__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -30px;
+}
