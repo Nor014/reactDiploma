@@ -5,12 +5,14 @@ import cartReducer from '../reducers/cartReducer';
 import hitsReducer from '../reducers/hitsReducer';
 import catalogReducer from '../reducers/catalogReducer';
 import catalogNavReducer from '../reducers/catalogNavReducer';
+import loadMoreReducer from '../reducers/loadMoreReducer'
 
 const generalReducer = combineReducers({
   cartState: cartReducer,
   hitsState: hitsReducer,
   catalogState: catalogReducer,
-  catalogNavState: catalogNavReducer
+  catalogNavState: catalogNavReducer,
+  loadMoreState: loadMoreReducer
 })
 
 const sagaMiddleware = createSagaMiddleware();

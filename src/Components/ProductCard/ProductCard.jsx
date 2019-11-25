@@ -1,10 +1,9 @@
 import React from 'react';
 
 export default class ProductCard extends React.Component {
-
+  
   render() {
     const { data } = this.props
-    console.log(this.props)
 
     return (
       <div className="product-card">

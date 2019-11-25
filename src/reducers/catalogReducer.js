@@ -21,11 +21,11 @@ export default function catalogReducer(state = initState, action) {
     return { ...state, loading: false, items: action.payload }
   }
 
-  if (action.type === 'SET_MORE_FOR_CATEGORY') {
+  if (action.type === 'SET_MORE_FOR_CATEGORY' || action.type === 'SET_MORE_FOR_CATEGORY_AND_DISABLE') {
     let data = [].concat(state.items)
     action.payload.forEach(el => data.push(el))
 
-    console.log(data)
+    console.log(action.payload)
     return { ...state, loading: false, items: data }
   }
 

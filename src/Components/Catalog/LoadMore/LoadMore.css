@@ -10,3 +10,7 @@
   border-radius: 5px;
   padding: 12px;
 }
+
+.load-more__btn.disabled {
+  display: none;
+}

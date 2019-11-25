@@ -1,5 +1,5 @@
 import { spawn, take, put, fork, call, takeLatest } from 'redux-saga/effects';
-import { fetchData, setHits, setCatalogNav, setCatalog, setNewCategory, setMoreForCategory } from '../actions/actions'
+import { fetchData, setHits, setCatalogNav, setCatalog, setNewCategory, setMoreForCategory,  setMoreForCategoryAndDisable} from '../actions/actions'
 
 
 function* getDataSaga(action) {
@@ -28,7 +28,7 @@ function* getMoreDataSaga(action) {
     const data = yield call(fetchData, url);
     console.log(data)
 
-    yield put(setMoreForCategory(data))
+    yield data.length < 6 ? put(setMoreForCategoryAndDisable(data)) : put(setMoreForCategory(data))
   } catch (error) {
 
   }

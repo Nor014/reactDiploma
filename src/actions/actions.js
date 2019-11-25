@@ -68,12 +68,20 @@ export function loadMoreForCategory(url) {
   }
 }
 
-export function setMoreForCategory(url) {
+export function setMoreForCategory(data) {
   return {
     type: 'SET_MORE_FOR_CATEGORY',
-    payload: url
+    payload: data
   }
 }
+
+export function setMoreForCategoryAndDisable(data) {
+  return {
+    type: 'SET_MORE_FOR_CATEGORY_AND_DISABLE',
+    payload: data
+  }
+}
+
 
 export const fetchData = async (url) => {
   const response = await fetch(url);
