@@ -1,7 +1,10 @@
 export function loadHits() {
   return {
     type: 'LOAD_HITS',
-    payload: 'http://localhost:7070/api/top-sales'
+    payload: {
+      url: 'http://localhost:7070/api/top-sales',
+      fromComponent: 'SalesHits'
+    }
   }
 }
 
@@ -15,7 +18,10 @@ export function setHits(data) {
 export function catalogLoad(url) {
   return {
     type: 'CATALOG_LOAD',
-    payload: url
+    payload: {
+      url: url,
+      fromComponent: 'Catalog'
+    }
   }
 }
 
@@ -26,10 +32,20 @@ export function setCatalog(data) {
   }
 }
 
+export function setCatalogAndDisable(data) {
+  return {
+    type: 'SET_CATALOG_AND_DISABLE',
+    payload: data
+  }
+}
+
 export function catalogNavLoad(url) {
   return {
     type: 'CATALOG_NAV_LOAD',
-    payload: url
+    payload: {
+      url: url,
+      fromComponent: 'CatalogNav'
+    }
   }
 }
 
@@ -47,24 +63,13 @@ export function changeCatalogNav(id) {
   }
 }
 
-export function loadNewCategory(url) {
-  return {
-    type: 'LOAD_NEW_CATEGORY',
-    payload: url
-  }
-}
-
-export function setNewCategory(data) {
-  return {
-    type: 'SET_NEW_CATEGORY',
-    payload: data
-  }
-}
-
 export function loadMoreForCategory(url) {
   return {
     type: 'LOAD_MORE_FOR_CATEGORY',
-    payload: url
+    payload: {
+      url: url,
+      fromComponent: 'LoadMore'
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../../Preloader/Preloader';
-import { catalogNavLoad, changeCatalogNav, loadNewCategory } from '../../../actions/actions';
+import { catalogNavLoad, changeCatalogNav, loadNewCategory, catalogLoad } from '../../../actions/actions';
 
 class CatalogNav extends React.Component {
   componentDidMount = () => {
@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     componentNavLoad: (url) => dispatch(catalogNavLoad(url)),
     componentNavChange: (id) => dispatch(changeCatalogNav(id)),
-    componentCategoryLoad: (url) => dispatch(loadNewCategory(url))
+    componentCategoryLoad: (url) => dispatch(catalogLoad(url))
   }
 }
 

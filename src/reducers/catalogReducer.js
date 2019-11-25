@@ -9,15 +9,7 @@ export default function catalogReducer(state = initState, action) {
     return { ...state, loading: true, items: [] }
   }
 
-  if (action.type === 'SET_CATALOG') {
-    return { ...state, loading: false, items: action.payload }
-  }
-
-  if (action.type === 'LOAD_NEW_CATEGORY') {
-    return { ...state, loading: true, items: [] }
-  }
-
-  if (action.type === 'SET_NEW_CATEGORY') {
+  if (action.type === 'SET_CATALOG' || action.type === 'SET_CATALOG_AND_DISABLE') {
     return { ...state, loading: false, items: action.payload }
   }
 
