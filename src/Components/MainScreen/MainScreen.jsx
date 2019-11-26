@@ -9,7 +9,7 @@ class MainScreen extends React.Component {
       <section className="main-page">
         <Banner />
         <SalesHits />
-        <Catalog />
+        <Catalog fromMainPage={true} />
       </section>
     )
   }

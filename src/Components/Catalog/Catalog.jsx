@@ -4,7 +4,9 @@ import Preloader from '../Preloader/Preloader';
 import { catalogLoad } from '../../actions/actions';
 import ProductCard from '../ProductCard/ProductCard';
 import CatalogNav from './CatalogNav/CatalogNav';
-import LoadMore from './LoadMore/LoadMore'
+import LoadMore from './LoadMore/LoadMore';
+import Banner from '../Banner/Banner';
+import CatalogSearch from './CatalogSearch/CatalogSearch'
 
 
 class Catalog extends React.Component {
@@ -13,10 +15,18 @@ class Catalog extends React.Component {
   }
 
   render() {
-    const { items, loading, error } = this.props.catalogState
+    const { items, loading, error } = this.props.catalogState;
+    const { fromMainPage } = this.props;
+    const searchValue = this.props.location !== undefined && this.props.location.state !== null
+      ? this.props.location.state.value
+      : '';
 
     return (
       <div className="catalog container">
+
+        {!fromMainPage && <Banner />}
+        {!fromMainPage && <CatalogSearch searchValue={searchValue} />}
+
         <div className="container__title">Каталог</div>
 
         <CatalogNav />
@@ -37,9 +47,9 @@ class Catalog extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { catalogState, catalogNavState } = state
+  const { catalogState } = state
   return {
-    catalogState: catalogState,
+    catalogState: catalogState
   }
 }
 
