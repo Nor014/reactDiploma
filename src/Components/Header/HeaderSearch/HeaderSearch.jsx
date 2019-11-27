@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 class HeaderSearch extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class HeaderSearch extends React.Component {
   onSearchClick = () => {
     this.setState((prevState) => {
       if (prevState.redirect) {
-        return { ...prevState, redirect: false, active: !prevState.active, searchValue: ''}
+        return { ...prevState, redirect: false, active: !prevState.active, searchValue: '' }
       }
 
       if (!prevState.active) {
@@ -44,7 +44,7 @@ class HeaderSearch extends React.Component {
     return (
       <div className="header-search">
         <div className="header-search__input-wrap">
-          <input type="text" className={searchClassName} onChange={this.onSearchInputChange} value={this.state.searchValue}/>
+          <input type="text" className={searchClassName} onChange={this.onSearchInputChange} value={this.state.searchValue} />
         </div>
         <button type='button' className='btn header-search__btn' onClick={this.onSearchClick} />
 

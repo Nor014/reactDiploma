@@ -11,7 +11,9 @@ import CatalogSearch from './CatalogSearch/CatalogSearch'
 
 class Catalog extends React.Component {
   componentDidMount = () => {
-    this.props.componentLoad('http://localhost:7070/api/items')
+    this.props.location !== undefined && this.props.location.state !== null
+      ? this.props.componentLoad(`http://localhost:7070/api/items?q=${this.props.location.state.value}`)
+      : this.props.componentLoad('http://localhost:7070/api/items')
   }
 
   render() {

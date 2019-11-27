@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { catalogLoad } from '../../../actions/actions'
 
 
 class CatalogSearch extends React.Component {
@@ -10,9 +11,15 @@ class CatalogSearch extends React.Component {
     }
   }
 
+  onSearchBtn = () => {
+    if (this.state.value !== '') {
+      const url = ` http://localhost:7070/api/items?q=${this.state.value}`
+      this.props.catalogLoad(url)
+    }
+  }
+
   onInputChange = (event) => {
     const { value } = event.target
-
     this.setState((prevState) => {
       return { ...prevState, value: value }
     })
@@ -22,21 +29,19 @@ class CatalogSearch extends React.Component {
     return (
       <form className="catalog-search">
         <input type="text" className='catalog-search__input' placeholder='Поиск' value={this.state.value} onChange={this.onInputChange} />
+        <button type='button' className='btn catalog-search__btn' onClick={this.onSearchBtn} />
       </form>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-
-  return {
-
-  }
+  return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    catalogLoad: (url) => dispatch(catalogLoad(url))
   }
 }
 
