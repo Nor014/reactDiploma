@@ -12,9 +12,17 @@ class LoadMore extends React.Component {
 
     const id = nav.find(el => el.active).id;
     const amoutnToMiss = items.length;
-    const url = id !== 'All'
-      ? `http://localhost:7070/api/items?categoryId=${id}&offset=${amoutnToMiss}`
-      : `http://localhost:7070/api/items?offset=${amoutnToMiss}`
+    const search = this.props.searchState.value
+
+    let url;
+
+    if (search !== '') {
+      url = `http://localhost:7070/api/items?q=${search}&offset=${amoutnToMiss}`
+    } else {
+      url = id !== 'All'
+        ? `http://localhost:7070/api/items?categoryId=${id}&offset=${amoutnToMiss}`
+        : `http://localhost:7070/api/items?offset=${amoutnToMiss}`
+    }
 
     this.props.loadMore(url);
   }
@@ -33,11 +41,12 @@ class LoadMore extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { catalogNavState, loadMoreState, catalogState } = state
+  const { catalogNavState, loadMoreState, catalogState, searchState } = state
   return {
     state: catalogNavState,
     loadMoreState: loadMoreState,
-    catalogState: catalogState
+    catalogState: catalogState,
+    searchState: searchState
   }
 }
 

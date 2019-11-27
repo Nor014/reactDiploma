@@ -11,17 +11,15 @@ import CatalogSearch from './CatalogSearch/CatalogSearch'
 
 class Catalog extends React.Component {
   componentDidMount = () => {
-    this.props.location !== undefined && this.props.location.state !== null
-      ? this.props.componentLoad(`http://localhost:7070/api/items?q=${this.props.location.state.value}`)
-      : this.props.componentLoad('http://localhost:7070/api/items')
+    this.props.searchState.value === ''
+      ? this.props.componentLoad('http://localhost:7070/api/items')
+      : this.props.componentLoad(`http://localhost:7070/api/items?q=${this.props.searchState.value}`)
   }
 
   render() {
     const { items, loading, error } = this.props.catalogState;
     const { fromMainPage } = this.props;
-    const searchValue = this.props.location !== undefined && this.props.location.state !== null
-      ? this.props.location.state.value
-      : '';
+    const searchValue = this.props.searchState.value;
 
     return (
       <div className="catalog container">
@@ -49,9 +47,10 @@ class Catalog extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { catalogState } = state
+  const { catalogState, searchState } = state
   return {
-    catalogState: catalogState
+    catalogState: catalogState,
+    searchState: searchState
   }
 }
 

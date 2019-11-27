@@ -1,3 +1,5 @@
+// SalesHits
+
 export function loadHits() {
   return {
     type: 'LOAD_HITS',
@@ -14,6 +16,8 @@ export function setHits(data) {
     payload: data
   }
 }
+
+// Catalog
 
 export function catalogLoad(url) {
   return {
@@ -39,6 +43,8 @@ export function setCatalogAndDisable(data) {
   }
 }
 
+// CatalogNav
+
 export function catalogNavLoad(url) {
   return {
     type: 'CATALOG_NAV_LOAD',
@@ -63,6 +69,8 @@ export function changeCatalogNav(id) {
   }
 }
 
+// LoadMore
+
 export function loadMoreForCategory(url) {
   return {
     type: 'LOAD_MORE_FOR_CATEGORY',
@@ -84,6 +92,15 @@ export function setMoreForCategoryAndDisable(data) {
   return {
     type: 'SET_MORE_FOR_CATEGORY_AND_DISABLE',
     payload: data
+  }
+}
+
+// search
+
+export function setSearchValue(value) {
+  return {
+    type: 'SET_SEARCH_VALUE',
+    payload: value
   }
 }
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setSearchValue } from '../../../actions/actions';
 
 class HeaderSearch extends React.Component {
   constructor(props) {
@@ -26,6 +28,7 @@ class HeaderSearch extends React.Component {
       }
 
       if (prevState.active && prevState.searchValue !== '') {
+        this.props.setSearchValue(this.state.searchValue)
         return { ...prevState, redirect: !prevState.redirect, active: !prevState.active }
       }
     })
@@ -49,13 +52,21 @@ class HeaderSearch extends React.Component {
         <button type='button' className='btn header-search__btn' onClick={this.onSearchClick} />
 
         {this.state.redirect &&
-          <Redirect to={{
-            pathname: '/catalog.html',
-            state: { value: this.state.searchValue }
-          }} />}
+          <Redirect to='/catalog.html' />}
       </div>
     )
   }
 }
 
-export default HeaderSearch
+
+const mapStateToProps = (state) => {
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSearchValue: (value) => dispatch(setSearchValue(value))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderSearch)
