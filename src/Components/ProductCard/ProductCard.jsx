@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 export default class ProductCard extends React.Component {
-  
+
   render() {
     const { data } = this.props
 
@@ -13,7 +14,7 @@ export default class ProductCard extends React.Component {
         <div className="product-card__body">
           <div className="product-card__name">{data.title}</div>
           <div className="product-card__price">{data.price} руб.</div>
-          <button type='button' className="btn product-card__btn">Заказать</button>
+          <Link to={`/catalog/${data.id}.html`} className="btn product-card__btn">Заказать</Link>
         </div>
       </div>
     )

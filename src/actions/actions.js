@@ -104,6 +104,19 @@ export function setSearchValue(value) {
   }
 }
 
+// product
+
+export function loadProduct(url) {
+  return {
+    type: 'LOAD_PRODUCT',
+    payload: {
+      url: url,
+      fromComponent: 'Product'
+    }
+  }
+}
+
+
 
 export const fetchData = async (url) => {
   const response = await fetch(url);

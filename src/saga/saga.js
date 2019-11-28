@@ -8,6 +8,8 @@ function* getDataSaga(action) {
     const fromComponent = action.payload.fromComponent;
     const data = yield call(fetchData, url);
 
+    console.log(data)
+
     if (fromComponent === 'SalesHits') {
       yield put(setHits(data))
     } else if (fromComponent === 'CatalogNav') {
@@ -48,9 +50,17 @@ function* loadMoreWatcher() {
   }
 }
 
+function* productWatcher() {
+  while (true) {
+    const action = yield take('LOAD_PRODUCT')
+    yield fork(getDataSaga, action)
+  }
+}
+
 export default function* saga() {
   yield spawn(salesHitsWatcherSaga)
   yield spawn(catalogNavWatcherSaga)
   yield spawn(catalogWatcherSaga)
   yield spawn(loadMoreWatcher)
+  yield spawn(productWatcher)
 }

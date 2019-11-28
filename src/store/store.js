@@ -6,7 +6,8 @@ import hitsReducer from '../reducers/hitsReducer';
 import catalogReducer from '../reducers/catalogReducer';
 import catalogNavReducer from '../reducers/catalogNavReducer';
 import loadMoreReducer from '../reducers/loadMoreReducer';
-import searchReducer from '../reducers/searchReducer'
+import searchReducer from '../reducers/searchReducer';
+import productReducer from '../reducers/productReducer';
 
 const generalReducer = combineReducers({
   cartState: cartReducer,
@@ -14,7 +15,8 @@ const generalReducer = combineReducers({
   catalogState: catalogReducer,
   catalogNavState: catalogNavReducer,
   loadMoreState: loadMoreReducer,
-  searchState: searchReducer
+  searchState: searchReducer,
+  productState: productReducer
 })
 
 const sagaMiddleware = createSagaMiddleware();
