@@ -116,6 +116,21 @@ export function loadProduct(url) {
   }
 }
 
+export function setProduct(data) {
+  return {
+    type: 'SET_PRODUCT',
+    payload: data
+  }
+}
+
+export function changeCheckbox(size) {
+  return {
+    type: 'CHANGE_CHECKBOX',
+    payload: size
+  }
+}
+
+
 
 
 export const fetchData = async (url) => {

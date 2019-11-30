@@ -1,5 +1,6 @@
 const initState = {
-  data: {},
+  data: '',
+  avaliableSizes: [],
   loading: false,
   error: null
 }
@@ -8,6 +9,29 @@ export default function productReducer(state = initState, action) {
   if (action.type === 'LOAD_PRODUCT') {
     return { ...state, loading: true }
   }
-  
+
+  if (action.type === 'SET_PRODUCT') {
+    const data = action.payload;
+
+    const avaliableSizes = data.sizes.filter(el => el.avalible).map(el => {
+      el.checked = false;
+      return el
+    })
+
+    return { ...state, loading: false, error: null, data: data, avaliableSizes: avaliableSizes }
+  }
+
+  if (action.type === 'CHANGE_CHECKBOX') {
+    const avaliableSizes = state.avaliableSizes.map(el => {
+      if (el.size === action.payload) {
+        el.checked = !el.checked
+      }
+
+      return el
+    })
+
+    return { ...state, avaliableSizes: avaliableSizes }
+  }
+
   return state
 }

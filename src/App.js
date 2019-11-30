@@ -29,6 +29,7 @@ import './Components/SalesHits/SalesHits.css'
 import './Components/Catalog/CatalogNav/CatalogNav.css'
 import './Components/Catalog/LoadMore/LoadMore.css'
 import './Components/Catalog/CatalogSearch/CatalogSearch.css'
+import './Components/Product/Product.css'
 
 
 function App() {

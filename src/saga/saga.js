@@ -1,5 +1,5 @@
 import { spawn, take, put, fork, call, takeLatest } from 'redux-saga/effects';
-import { fetchData, setHits, setCatalogNav, setCatalog, setCatalogAndDisable, setMoreForCategory, setMoreForCategoryAndDisable } from '../actions/actions'
+import { fetchData, setHits, setCatalogNav, setCatalog, setCatalogAndDisable, setMoreForCategory, setMoreForCategoryAndDisable, setProduct } from '../actions/actions'
 
 
 function* getDataSaga(action) {
@@ -18,6 +18,8 @@ function* getDataSaga(action) {
       yield data.length < 6 ? put(setCatalogAndDisable(data)) : put(setCatalog(data))
     } else if (fromComponent === 'LoadMore') {
       yield data.length < 6 ? put(setMoreForCategoryAndDisable(data)) : put(setMoreForCategory(data))
+    } else if (fromComponent === 'Product') {
+      yield put(setProduct(data))
     }
 
   } catch (error) {
