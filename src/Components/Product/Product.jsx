@@ -2,7 +2,8 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import Preloader from '../Preloader/Preloader';
 import { connect } from 'react-redux';
-import { loadProduct, changeCheckbox } from '../../actions/actions';
+import { loadProduct, changeCheckbox, amountPlusOne, amountMinusOne } from '../../actions/actions';
+import { Link } from 'react-router-dom'
 
 class Product extends React.Component {
   componentDidMount = () => {
@@ -17,8 +18,25 @@ class Product extends React.Component {
     this.props.changeCheckbox(value)
   }
 
+  onPlusBtn = (event) => {
+    const { value } = event.target
+
+    if (value < 10) {
+      this.props.amountPlus()
+    }
+  }
+
+  onMinusBtn = (event) => {
+    const { value } = event.target
+
+    if (value <= 10 && value > 1) {
+      this.props.amountMinus()
+    }
+  }
+
   render() {
-    const { data, loading, error, avaliableSizes } = this.props.state;
+    const { data, loading, error, avaliableSizes, amount } = this.props.state;
+    const btnDisabled = avaliableSizes.find(el => el.checked) ? false : true;
     console.log(this.props.state)
 
     return (
@@ -70,9 +88,20 @@ class Product extends React.Component {
                   <p className="product__sizes-text">Размеры в наличии:</p>
                   {avaliableSizes.map((el, index) =>
                     <label className={el.checked ? 'product__input-lable product_checked' : 'product__input-lable'} key={index}>
-                      <input className='product__input' type='checkbox' value={el.size} checked={el.checked} onClick={this.onChechboxClick} />
+                      <input className='product__input' type='radio' value={el.size} checked={el.checked} onClick={this.onChechboxClick} />
                       {el.size}</label>)}
                 </div>
+
+                <div className="product__amount">
+                  <p className="product__amount-text">Колличество:</p>
+                  <div className="product__amount__wrap">
+                    <button className='btn product__amount-btn' type='button' value={amount} onClick={this.onMinusBtn}>-</button>
+                    <div className="product__amount-value">{amount}</div>
+                    <button className="btn product__amount-btn" type='button' value={amount} onClick={this.onPlusBtn}>+</button>
+                  </div>
+                </div>
+
+                <Link to='/cart.html' className={btnDisabled ? 'btn product__btn btn_disabled' : 'btn product__btn'} disabled={btnDisabled}>В корзину</Link>
               </div>
             </div>
 
@@ -93,7 +122,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     loadComponent: (url) => dispatch(loadProduct(url)),
-    changeCheckbox: (size) => dispatch(changeCheckbox(size))
+    changeCheckbox: (size) => dispatch(changeCheckbox(size)),
+    amountPlus: () => dispatch(amountPlusOne()),
+    amountMinus: () => dispatch(amountMinusOne())
   }
 }
 

@@ -130,7 +130,17 @@ export function changeCheckbox(size) {
   }
 }
 
+export function amountPlusOne() {
+  return {
+    type: 'AMOUNT_PLUS_ONE'
+  }
+}
 
+export function amountMinusOne() {
+  return {
+    type: 'AMOUNT_MINUS_ONE'
+  }
+}
 
 
 export const fetchData = async (url) => {

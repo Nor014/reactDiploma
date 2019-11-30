@@ -9,6 +9,7 @@ import Contacts from './Components/Contacts/Contacts';
 import Error404 from './Components/Error404/Error404';
 import Catalog from './Components/Catalog/Catalog';
 import Product from './Components/Product/Product';
+import Cart from './Components/Cart/Cart';
 import store from './store/store';
 
 import './App.css';
@@ -45,6 +46,7 @@ function App() {
               <Route exact path='/contacts.html' component={Contacts} />
               <Route exact path='/catalog.html' component={Catalog} />
               <Route exact path='/catalog/:id.html' component={Product} />
+              <Route exact path='/cart.html' component={Cart} />
               <Route path='*' component={Error404} />
             </Switch>
           </div>

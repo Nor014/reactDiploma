@@ -36,6 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 25px;
 }
 
 .product__sizes-text {
@@ -54,4 +55,50 @@
   background: #727e86;
   color: #fff;
   border-radius: 10px;
+}
+
+.product__btn {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  background: #dc3645;
+  color: #fff;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.btn_disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.product__amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.product__amount-text {
+  margin-right: 10px;
+}
+
+.product__amount__wrap {
+  display: flex;
+  align-items: center;
+  background: #6c757d;
+  border-radius: 5px;
+  min-height: 32px;
+  color: #fff;
+}
+
+.product__amount-btn {
+  padding: 0 10px;
+  color: #fff;
+}
+
+.product__amount-value {
+  padding: 5px;
+  color: #6c757d;
+  background: #fff;
 }
