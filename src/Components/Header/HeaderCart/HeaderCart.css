@@ -6,6 +6,7 @@
   width: 31px;
   height: 31px;
   background: url('./cart.png');
+  display: block;
 }
 
 .header-cart__btn:hover, .header-cart__btn:focus {

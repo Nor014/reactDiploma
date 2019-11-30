@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 
 class HeaderCart extends React.Component {
-
   render() {
     const { items } = this.props.state;
-    const cartClassName = items > 0 ? 'header-cart__label cart_active' : 'header-cart__label';
-    console.log(this.props)
+    const cartClassName = items.length > 0 ? 'header-cart__label cart_active' : 'header-cart__label';
 
     return (
       <div className="header-cart">
-        <button className='btn header-cart__btn' />
-        <div className={cartClassName}>{items}</div>
+        <Link to='/cart.html' className='btn header-cart__btn' />
+        <div className={cartClassName}>{items.length}</div>
       </div>
     )
   }

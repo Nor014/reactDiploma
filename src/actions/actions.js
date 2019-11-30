@@ -142,6 +142,22 @@ export function amountMinusOne() {
   }
 }
 
+// Cart
+
+export function addToCart(product) {
+  return {
+    type: 'ADD_TO_CART',
+    payload: product
+  }
+}
+
+export function deleteFromCart(id) {
+  return {
+    type: 'DELETE_FROM_CART',
+    payload: id
+  }
+}
+
 
 export const fetchData = async (url) => {
   const response = await fetch(url);

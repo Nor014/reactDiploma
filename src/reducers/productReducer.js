@@ -46,5 +46,9 @@ export default function productReducer(state = initState, action) {
     return { ...state, amount: amount }
   }
 
+  if (action.type === 'ADD_TO_CART') {
+    return initState
+  }
+
   return state
 }
