@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
+import Checkout from '../Checkout/Checkout';
 import { connect } from 'react-redux';
 import nanoid from 'nanoid';
 import { addToCart, deleteFromCart } from '../../actions/actions';
@@ -70,6 +71,8 @@ class Cart extends React.Component {
             </tbody>
           </table>
         </div>
+
+        {items.length > 0 && <Checkout />}
       </div >
     )
   }

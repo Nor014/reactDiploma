@@ -1,14 +1,7 @@
-const initState = localStorage.getItem('products')
-  ? {
-    items: JSON.parse(localStorage.getItem("products")),
-    loading: false,
-    error: null
-  }
-  : {
-    items: [],
-    loading: false,
-    error: null
-  }
+const initState = {
+  items: localStorage.getItem('products') ? JSON.parse(localStorage.getItem("products")) : []
+}
+
 
 export default function cartReducer(state = initState, action) {
   if (action.type === 'ADD_TO_CART') {
@@ -28,7 +21,8 @@ export default function cartReducer(state = initState, action) {
 
   if (action.type === 'DELETE_FROM_CART') {
     const items = [].concat(state.items).filter(el => el.id !== action.payload);
-    localStorage.setItem('products', JSON.stringify(items))
+    localStorage.setItem('products', JSON.stringify(items));
+
     return { ...state, items: items }
   }
 
