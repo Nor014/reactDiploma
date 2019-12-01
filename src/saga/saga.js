@@ -8,8 +8,6 @@ function* getDataSaga(action) {
     const fromComponent = action.payload.fromComponent;
     const data = yield call(fetchData, url);
 
-    console.log(data)
-
     if (fromComponent === 'SalesHits') {
       yield put(setHits(data))
     } else if (fromComponent === 'CatalogNav') {
