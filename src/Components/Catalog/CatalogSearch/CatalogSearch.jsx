@@ -28,7 +28,7 @@ class CatalogSearch extends React.Component {
 
   render() {
     return (
-      <form className="catalog-search">
+      <form className="catalog-search" >
         <input type="text" className='catalog-search__input' placeholder='Поиск' value={this.state.value} onChange={this.onInputChange} />
         <button type='button' className='btn catalog-search__btn' onClick={this.onSearchBtn} />
       </form>

@@ -158,6 +158,24 @@ export function deleteFromCart(id) {
   }
 }
 
+// Checkout
+
+export function checkout(data, url) {
+  return {
+    type: 'CHECKOUT',
+    payload: {
+      data: data,
+      url: url
+    }
+  }
+}
+
+export function checkoutSuccess() {
+  return {
+    type: 'CHECKOUT_SUCCESS'
+  }
+}
+
 
 export const fetchData = async (url) => {
   const response = await fetch(url);
@@ -165,4 +183,21 @@ export const fetchData = async (url) => {
     throw new Error(response.statusText);
   }
   return await response.json();
+}
+
+export const postData = async (data, url) => {
+  const response = await fetch(url, {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  return response;
 }

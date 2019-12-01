@@ -26,6 +26,12 @@ export default function cartReducer(state = initState, action) {
     return { ...state, items: items }
   }
 
+  if (action.type === 'CHECKOUT_SUCCESS') {
+    localStorage.clear()
+
+    return { ...state, items: [] }
+  }
+
   return state
 }
 

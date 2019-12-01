@@ -2,6 +2,11 @@
   margin-bottom: 80px;
 }
 
+.checkout_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .checkout__title {
   text-align: center;
   margin-bottom: 20px;
@@ -57,4 +62,14 @@
 
 .error_visible {
   visibility: visible;
+}
+
+.checkout__success {
+  max-width: 250px;
+  margin: 0 auto;
+  padding: 15px;
+  background: #5cfa89;
+  text-align: center;
+  margin-bottom: 30px;
+  border-radius: 5px;
 }

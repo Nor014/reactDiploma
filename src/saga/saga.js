@@ -1,5 +1,5 @@
 import { spawn, take, put, fork, call, takeLatest } from 'redux-saga/effects';
-import { fetchData, setHits, setCatalogNav, setCatalog, setCatalogAndDisable, setMoreForCategory, setMoreForCategoryAndDisable, setProduct } from '../actions/actions'
+import { fetchData, setHits, setCatalogNav, setCatalog, setCatalogAndDisable, setMoreForCategory, setMoreForCategoryAndDisable, setProduct, postData, checkoutSuccess } from '../actions/actions'
 
 
 function* getDataSaga(action) {
@@ -23,6 +23,20 @@ function* getDataSaga(action) {
   } catch (error) {
 
   }
+}
+
+function* postDataSaga(action) {
+  try {
+    const { url, data } = action.payload
+    const postMessage = yield call(postData, data, url)
+
+    if (postMessage) {
+      yield put(checkoutSuccess())
+    }
+  } catch (error) {
+
+  }
+
 }
 
 function* salesHitsWatcherSaga() {
@@ -57,10 +71,18 @@ function* productWatcher() {
   }
 }
 
+function* postDataWatcher() {
+  while (true) {
+    const action = yield take('CHECKOUT')
+    yield fork(postDataSaga, action)
+  }
+}
+
 export default function* saga() {
   yield spawn(salesHitsWatcherSaga)
   yield spawn(catalogNavWatcherSaga)
   yield spawn(catalogWatcherSaga)
   yield spawn(loadMoreWatcher)
   yield spawn(productWatcher)
+  yield spawn(postDataWatcher)
 }

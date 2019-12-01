@@ -8,6 +8,7 @@ import catalogNavReducer from '../reducers/catalogNavReducer';
 import loadMoreReducer from '../reducers/loadMoreReducer';
 import searchReducer from '../reducers/searchReducer';
 import productReducer from '../reducers/productReducer';
+import checkoutReducer from '../reducers/checkoutReducer';
 
 const generalReducer = combineReducers({
   cartState: cartReducer,
@@ -16,7 +17,8 @@ const generalReducer = combineReducers({
   catalogNavState: catalogNavReducer,
   loadMoreState: loadMoreReducer,
   searchState: searchReducer,
-  productState: productReducer
+  productState: productReducer,
+  checkoutState: checkoutReducer
 })
 
 const sagaMiddleware = createSagaMiddleware();

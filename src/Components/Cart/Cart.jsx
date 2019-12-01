@@ -12,6 +12,7 @@ class Cart extends React.Component {
 
       const productObj = {
         id: nanoid(),
+        productId: productData.data.id,
         name: productData.data.title,
         size: productData.avaliableSizes.find(el => el.checked).size,
         amount: productData.amount,
@@ -28,7 +29,9 @@ class Cart extends React.Component {
 
   render() {
     const { items } = this.props.cartState;
-    const totalCost = items.reduce((acomulator, el) => acomulator + el.price * el.amount, 0)
+    const { success } = this.props.checkoutState;
+    const totalCost = items.reduce((acomulator, el) => acomulator + el.price * el.amount, 0);
+
 
     return (
       <div className="cart-page">
@@ -72,17 +75,19 @@ class Cart extends React.Component {
           </table>
         </div>
 
-        {items.length > 0 && <Checkout />}
+        {success && <div className='checkout__success'>Заказ успешно оформлен</div>}
+        {items.length > 0 ? <Checkout items={items} /> : <Checkout items={items} className='checkout_disabled' />}
       </div >
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  const { productState, cartState } = state
+  const { productState, cartState, checkoutState } = state
   return {
     productState: productState,
-    cartState: cartState
+    cartState: cartState,
+    checkoutState: checkoutState
   }
 }
 
