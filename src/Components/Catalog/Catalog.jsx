@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../Preloader/Preloader';
 import { catalogLoad } from '../../actions/actions';
+import Error from '../Error/Error';
 import ProductCard from '../ProductCard/ProductCard';
 import CatalogNav from './CatalogNav/CatalogNav';
 import LoadMore from './LoadMore/LoadMore';
@@ -20,6 +21,9 @@ class Catalog extends React.Component {
     const { items, loading, error } = this.props.catalogState;
     const { fromMainPage } = this.props;
     const searchValue = this.props.searchState.value;
+    const url = this.props.searchState.value === ''
+      ? 'http://localhost:7070/api/items'
+      : `http://localhost:7070/api/items?q=${this.props.searchState.value}`
 
     return (
       <div className="catalog container">
@@ -32,6 +36,7 @@ class Catalog extends React.Component {
         <CatalogNav />
 
         {loading && <Preloader />}
+        {error && <Error error={error} retry={() => this.props.componentLoad(url)} />}
 
         {items.length > 0 &&
           <>

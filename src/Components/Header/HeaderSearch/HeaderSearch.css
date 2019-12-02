@@ -32,9 +32,11 @@
   width: 30px;
   height: 30px;
   background: url('./search.png') no-repeat center;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-48%);
+  right: 20px;
   z-index: 10;
-  margin-right: 20px;
 }
 
 .header-search__btn:hover, .header-search__btn:focus {

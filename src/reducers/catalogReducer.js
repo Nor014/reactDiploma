@@ -6,7 +6,7 @@ const initState = {
 
 export default function catalogReducer(state = initState, action) {
   if (action.type === 'CATALOG_LOAD') {
-    return { ...state, loading: true, items: [] }
+    return { ...state, loading: true, items: [], error: null }
   }
 
   if (action.type === 'SET_CATALOG' || action.type === 'SET_CATALOG_AND_DISABLE') {
@@ -19,6 +19,10 @@ export default function catalogReducer(state = initState, action) {
 
     console.log(action.payload)
     return { ...state, loading: false, items: data }
+  }
+
+  if (action.type === 'SET_ERROR_CATALOG') {
+    return { ...state, error: action.payload, items: [], loading: false }
   }
 
   return state

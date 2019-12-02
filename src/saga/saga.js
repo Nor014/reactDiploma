@@ -1,11 +1,12 @@
 import { spawn, take, put, fork, call, takeLatest } from 'redux-saga/effects';
-import { fetchData, setHits, setCatalogNav, setCatalog, setCatalogAndDisable, setMoreForCategory, setMoreForCategoryAndDisable, setProduct, postData, checkoutSuccess } from '../actions/actions'
+import { fetchData, setHits, setCatalogNav, setCatalog, setCatalogAndDisable, setMoreForCategory, setMoreForCategoryAndDisable, setProduct, postData, checkoutSuccess, setError } from '../actions/actions'
 
 
 function* getDataSaga(action) {
+  const fromComponent = action.payload.fromComponent;
+
   try {
     const url = action.payload.url;
-    const fromComponent = action.payload.fromComponent;
     const data = yield call(fetchData, url);
 
     if (fromComponent === 'SalesHits') {
@@ -21,7 +22,7 @@ function* getDataSaga(action) {
     }
 
   } catch (error) {
-
+    yield put(setError(error.message, fromComponent))
   }
 }
 

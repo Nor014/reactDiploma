@@ -34,7 +34,8 @@ import './Components/Catalog/LoadMore/LoadMore.css';
 import './Components/Catalog/CatalogSearch/CatalogSearch.css';
 import './Components/Product/Product.css';
 import './Components/Cart/Cart.css';
-import './Components/Checkout/Checkout.css'
+import './Components/Checkout/Checkout.css';
+import './Components/Error/Error.css';
 
 
 function App() {

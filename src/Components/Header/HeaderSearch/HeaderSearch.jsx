@@ -13,7 +13,7 @@ class HeaderSearch extends React.Component {
     }
   }
 
-  onSearchClick = () => {
+  onSearchClick = (event) => {
     this.setState((prevState) => {
       if (prevState.redirect) {
         return { ...prevState, redirect: false, active: !prevState.active, searchValue: '' }
@@ -32,6 +32,8 @@ class HeaderSearch extends React.Component {
         return { ...prevState, redirect: !prevState.redirect, active: !prevState.active }
       }
     })
+
+    event.preventDefault()
   }
 
   onSearchInputChange = (event) => {
@@ -46,10 +48,10 @@ class HeaderSearch extends React.Component {
 
     return (
       <div className="header-search">
-        <div className="header-search__input-wrap">
+        <form className="header-search__input-wrap" >
           <input type="text" className={searchClassName} onChange={this.onSearchInputChange} value={this.state.searchValue} />
-        </div>
-        <button type='button' className='btn header-search__btn' onClick={this.onSearchClick} />
+          <button type='submit' className='btn header-search__btn' onClick={this.onSearchClick} />
+        </form>
 
         {this.state.redirect &&
           <Redirect to='/catalog.html' />}

@@ -176,6 +176,15 @@ export function checkoutSuccess() {
   }
 }
 
+// Error
+
+export function setError(error, fromComponent) {
+  return {
+    type: `SET_ERROR_${fromComponent.toUpperCase()}`,
+    payload: error
+  }
+}
+
 
 export const fetchData = async (url) => {
   const response = await fetch(url);

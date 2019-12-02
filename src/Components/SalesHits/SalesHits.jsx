@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../Preloader/Preloader';
 import { loadHits } from '../../actions/actions';
-import ProductCard from '../ProductCard/ProductCard'
+import ProductCard from '../ProductCard/ProductCard';
+import Error from '../Error/Error';
 
 
 class SalesHits extends React.Component {
@@ -11,7 +12,7 @@ class SalesHits extends React.Component {
   }
 
   render() {
-    const { hits, loading, error } = this.props.state
+    const { hits, loading, error } = this.props.state;
     console.log(this.props)
     
     return (
@@ -19,6 +20,7 @@ class SalesHits extends React.Component {
         <div className="container__title">Хиты продаж!</div>
 
         {loading && <Preloader />}
+        {error && <Error error={error} retry={this.props.componentLoad}/>}
 
         {hits &&
           <div className="container__wrap">

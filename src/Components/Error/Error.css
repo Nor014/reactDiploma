@@ -1,0 +1,26 @@
+.error {
+  max-width: 250px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto;
+  background: #b44040;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.error__message {
+  margin-bottom: 10px;
+}
+
+.error__btn {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  color: #fff;
+  background: #ce5656;
+}
+
+.error__btn:hover {
+  opacity: 0.8;
+}
