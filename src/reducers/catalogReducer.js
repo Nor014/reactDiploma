@@ -17,7 +17,6 @@ export default function catalogReducer(state = initState, action) {
     let data = [].concat(state.items)
     action.payload.forEach(el => data.push(el))
 
-    console.log(action.payload)
     return { ...state, loading: false, items: data }
   }
 

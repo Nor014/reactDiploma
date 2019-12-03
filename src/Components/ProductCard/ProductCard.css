@@ -9,9 +9,10 @@
 }
 
 .product-card__head {
-  min-height: 473px;
+  height: 473px;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .product-card__img {

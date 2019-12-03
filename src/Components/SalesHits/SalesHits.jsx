@@ -13,14 +13,13 @@ class SalesHits extends React.Component {
 
   render() {
     const { hits, loading, error } = this.props.state;
-    console.log(this.props)
-    
+
     return (
       <div className="sales-hits container">
         <div className="container__title">Хиты продаж!</div>
 
         {loading && <Preloader />}
-        {error && <Error error={error} retry={this.props.componentLoad}/>}
+        {error && <Error error={error} retry={this.props.componentLoad} />}
 
         {hits &&
           <div className="container__wrap">

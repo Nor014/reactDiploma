@@ -7,8 +7,8 @@ class Error404 extends React.Component {
     return (
       <div className="404">
         <Banner />
-        <div class="404__text">
-          <h2 class="404__title">Страница не найдена</h2>
+        <div className="404__text">
+          <h2 className="404__title">Страница не найдена</h2>
           <p>Извините, такая страница не найдена!</p>
         </div>
       </div>

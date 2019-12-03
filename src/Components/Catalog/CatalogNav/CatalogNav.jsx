@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../../Preloader/Preloader';
+import Error from '../../Error/Error';
 import { catalogNavLoad, changeCatalogNav, loadNewCategory, catalogLoad } from '../../../actions/actions';
 
 class CatalogNav extends React.Component {
@@ -16,11 +17,11 @@ class CatalogNav extends React.Component {
 
   render() {
     const { nav, navLoading, navError } = this.props.catalogNavState;
-    console.log(this.props)
 
     return (
       <ul className="catalog__nav">
         {navLoading && <Preloader />}
+        {navError && <Error error={navError} retry={() => this.props.componentNavLoad('http://localhost:7070/api/categories')} />}
         {nav.length !== 0 &&
           <>
             {nav.map(el => <li key={el.id} className="catalog__nav-item">

@@ -8,7 +8,7 @@ const initState = {
 
 export default function productReducer(state = initState, action) {
   if (action.type === 'LOAD_PRODUCT') {
-    return { ...state, loading: true }
+    return { ...state, loading: true, error: null }
   }
 
   if (action.type === 'SET_PRODUCT') {
@@ -48,6 +48,10 @@ export default function productReducer(state = initState, action) {
 
   if (action.type === 'ADD_TO_CART') {
     return initState
+  }
+
+  if (action.type === 'SET_ERROR_PRODUCT') {
+    return { ...state, error: action.payload, data: '', avaliableSizes: [], amount: 1, loading: false }
   }
 
   return state

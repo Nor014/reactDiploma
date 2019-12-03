@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Preloader from '../Preloader/Preloader';
+import Error from '../Error/Error';
 import { connect } from 'react-redux';
 import { loadProduct, changeCheckbox, amountPlusOne, amountMinusOne } from '../../actions/actions';
 import { Link } from 'react-router-dom'
@@ -34,16 +35,21 @@ class Product extends React.Component {
     }
   }
 
+  onImgError = (event) => {
+    event.target.onerror = null;
+    event.target.src = 'https://media.giphy.com/media/wZmCr7odNxKP6/giphy.gif';
+  }
+
   render() {
     const { data, loading, error, avaliableSizes, amount } = this.props.state;
     const btnDisabled = avaliableSizes.find(el => el.checked) ? false : true;
-    console.log(this.props.state)
 
     return (
       <div className="product-page">
         <Banner />
 
         {loading && <Preloader />}
+        {error && <Error error={error} retry={this.componentDidMount}/>}
 
         {data !== '' &&
           <div className="product">
@@ -51,7 +57,7 @@ class Product extends React.Component {
             <div className="product__inner">
 
               <div className="product__img-inner">
-                <img src={data.images[0]} alt={data.title} className="product__img" />
+                <img src={data.images[0]} alt={data.title} className="product__img" onError={this.onImgError}/>
               </div>
 
               <div className="product__body">

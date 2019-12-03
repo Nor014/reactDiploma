@@ -20,13 +20,14 @@ function* getDataSaga(action) {
     } else if (fromComponent === 'Product') {
       yield put(setProduct(data))
     }
-
   } catch (error) {
     yield put(setError(error.message, fromComponent))
   }
 }
 
 function* postDataSaga(action) {
+  const fromComponent = action.payload.fromComponent;
+  
   try {
     const { url, data } = action.payload
     const postMessage = yield call(postData, data, url)
@@ -35,9 +36,8 @@ function* postDataSaga(action) {
       yield put(checkoutSuccess())
     }
   } catch (error) {
-
+    yield put(setError(error.message, fromComponent))
   }
-
 }
 
 function* salesHitsWatcherSaga() {

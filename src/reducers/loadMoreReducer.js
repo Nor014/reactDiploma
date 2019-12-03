@@ -25,5 +25,9 @@ export default function loadMoreReducer(state = initState, action) {
     return { ...state, loading: false, error: null, disabled: true }
   }
 
+  if (action.type === 'SET_ERROR_LOADMORE') {
+    return { ...state, error: action.payload, loading: false }
+  }
+
   return state
 }

@@ -8,12 +8,12 @@ class FooterPayment extends React.Component {
         <h3 className="footer-payment__title">Принимаем к оплате</h3>
 
         <div className="footer-payment__items">
-          <div class="footer-payment__item footer-payment__item_paypal"></div>
-          <div class="footer-payment__item footer-payment__item_master-card"></div>
-          <div class="footer-payment__item footer-payment__item_visa"></div>
-          <div class="footer-payment__item footer-payment__item_yandex"></div>
-          <div class="footer-payment__item footer-payment__item_webmoney"></div>
-          <div class="footer-payment__item footer-payment__item_qiwi"></div>
+          <div className="footer-payment__item footer-payment__item_paypal"></div>
+          <div className="footer-payment__item footer-payment__item_master-card"></div>
+          <div className="footer-payment__item footer-payment__item_visa"></div>
+          <div className="footer-payment__item footer-payment__item_yandex"></div>
+          <div className="footer-payment__item footer-payment__item_webmoney"></div>
+          <div className="footer-payment__item footer-payment__item_qiwi"></div>
         </div>
 
         <div className="footer-copyright">

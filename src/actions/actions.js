@@ -165,7 +165,8 @@ export function checkout(data, url) {
     type: 'CHECKOUT',
     payload: {
       data: data,
-      url: url
+      url: url,
+      fromComponent: 'Checkout'
     }
   }
 }
@@ -179,6 +180,7 @@ export function checkoutSuccess() {
 // Error
 
 export function setError(error, fromComponent) {
+  console.log(`SET_ERROR_${fromComponent.toUpperCase()}`)
   return {
     type: `SET_ERROR_${fromComponent.toUpperCase()}`,
     payload: error

@@ -8,11 +8,11 @@ class AboutShop extends React.Component {
       <div className="about-shop">
         <Banner />
 
-        <div class="about-shop__content">
-          <h2 class="about-shop__title">О магазине</h2>
+        <div className="about-shop__content">
+          <h2 className="about-shop__title">О магазине</h2>
           <p className='about-shop__text'>В Интернете можно встретить немало магазинов, предлагающих аксессуары. Но именно к нам хочется
             возвращаться снова и снова.</p>
-          <p class="about-shop__text">Мы предлагаем вам особые условия:</p>
+          <p className="about-shop__text">Мы предлагаем вам особые условия:</p>
 
           <ol className='about-shop__conditions'>
             <li className='about-shop__condition'>Индивидуальный подход специалиста. Когда поступает новая коллекция обуви весна-лето или

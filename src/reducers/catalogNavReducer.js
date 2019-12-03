@@ -6,7 +6,7 @@ const initState = {
 
 export default function catalogReducer(state = initState, action) {
   if (action.type === 'CATALOG_NAV_LOAD') {
-    return { ...state, navLoading: true, nav: [] }
+    return { ...state, navLoading: true, nav: [], navError: null }
   }
 
   if (action.type === 'SET_CATALOG_NAV') {
@@ -24,6 +24,10 @@ export default function catalogReducer(state = initState, action) {
     })
 
     return { ...state, navLoading: false, nav: data }
+  }
+
+  if (action.type === 'SET_ERROR_CATALOGNAV') {
+    return { ...state, navLoading: false, navError: action.payload, nav: [] }
   }
 
   return state

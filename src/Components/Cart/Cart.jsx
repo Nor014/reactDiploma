@@ -29,7 +29,7 @@ class Cart extends React.Component {
 
   render() {
     const { items } = this.props.cartState;
-    const { success } = this.props.checkoutState;
+    const { success, error } = this.props.checkoutState;
     const totalCost = items.reduce((acomulator, el) => acomulator + el.price * el.amount, 0);
 
 
@@ -76,6 +76,8 @@ class Cart extends React.Component {
         </div>
 
         {success && <div className='checkout__success'>Заказ успешно оформлен</div>}
+        {error && <div className='checkout__error'>Произошла ошибка: {error} Повторите попытку</div>}
+
         {items.length > 0 ? <Checkout items={items} /> : <Checkout items={items} className='checkout_disabled' />}
       </div >
     )
